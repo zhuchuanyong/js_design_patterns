@@ -1,0 +1,6 @@
+class GongChang {
+    constructor(){
+        
+    }
+    supper()
+}
