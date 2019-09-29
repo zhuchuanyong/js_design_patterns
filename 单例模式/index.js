@@ -1,27 +1,20 @@
-// let xiaowang = (function() {
-//     let xiaowangjia = function(message) {
-//         this.mengling = message;
-//     };
-//     let men;
-//     let info = {
-//         senndMessage: function(message) {
-//             if (men) {
-//                 men = new xiaowangjia(message);
-//             } else {
-//                 return men;
-//             }
-//         }
-//     };
-//     return info;
-// })();
+class ManageGame {
+    static _schedule = null;
+    static getInstance() {
+        if (ManageGame._schedule) {
+            return ManageGame._schedule;
+        }
+        return (ManageGame._schedule = new ManageGame());
+    }
+    constructor() {
+        debugger;
+        if (ManageGame._schedule) {
+            return ManageGame._schedule;
+        }
+        console.log(this);
+        ManageGame._schedule = this;
+    }
+}
 
-// let xiaoli = {
-//     callXiaowang: function(msg) {
-//         let _xw = xiaowang.senndMessage(msg);
-//         console.log(_xw.mengling);
-//     }
-// };
-// xiaoli.callXiaowang('didi');
-
-
-
+const schedule1 = new ManageGame();
+const schedule2 = ManageGame.getInstance();
