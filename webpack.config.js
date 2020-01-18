@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: './src/index.js',
+    entry: './src/index.ts',
     output: {
         path: __dirname,
         filename: './release/bundle.js' // release 会自动创建
@@ -22,13 +22,23 @@ module.exports = {
             }
         }
     },
+    resolve: {
+        // 先尝试 ts 后缀的 TypeScript 源码文件
+        extensions: ['.ts', '.js']
+    },
     module: {
         rules: [
             {
                 test: /\.js?$/,
                 exclude: /(node_modules)/,
                 loader: 'babel-loader'
+            },
+            {
+                test: /\.ts$/,
+                exclude: /(node_modules)/,
+                loader: 'awesome-typescript-loader'
             }
         ]
-    }
+    },
+    devtool: 'source-map',// 输出 Source Map 方便在浏览器里调试 TypeScript 代码
 };
