@@ -1,1 +1,1 @@
-console.log(123222);
+import './01工厂模式'
